@@ -11,7 +11,7 @@
     <h1>{elementGroup.name}</h1>
     <ol>
         {#each elementGroup.elements as element }
-            <li>{element.name}</li>
+            <li>{element.revealed ? element.name : ''}</li>
         {/each}
     </ol>
 </section>

@@ -31,7 +31,7 @@
     <h1>HTML Elements Quiz</h1>
 </header>
 <main class="grid">
-    <AnswerForm />
+    <AnswerForm groupedElements={groupedElements} />
     {#each groupedElements as elementGroup}
         <CategoryList elementGroup={elementGroup} />
     {/each}
