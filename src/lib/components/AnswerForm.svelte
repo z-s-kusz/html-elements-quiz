@@ -1,8 +1,8 @@
 <script lang="ts">
     let answer = $state('');
 
-    const submit = () => {
-
+    const submit = (event: SubmitEvent) => {
+        event.preventDefault();
     };
 </script>
 

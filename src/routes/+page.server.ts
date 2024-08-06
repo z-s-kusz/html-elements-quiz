@@ -11,7 +11,7 @@ client.scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 const getElements = async () => {
     // A1 notation https://developers.google.com/sheets/api/guides/concepts#cell
-    const range = `${sheetName}!A2:C200`;
+    const range = `${sheetName}!A2:D200`;
     const options = {
         url: `${serviceEndpoint}/${sheetId}/values/${range}`,
     };
@@ -32,6 +32,7 @@ const mapSheetData = (data: any) => {
             description: row[1],
             category: row[2],
             revealed: false,
+            class: row[3],
         };
     });
 };

@@ -1,8 +1,18 @@
+<script lang="ts">
+    import type ElementGroup from "../../models/ElementGroup.js";
+    interface Props {
+        elementGroup: ElementGroup
+    }
+
+    let { elementGroup }: Props = $props();
+</script>
+
 <section class="category-list">
-    <h1>Section Name:</h1>
+    <h1>{elementGroup.name}</h1>
     <ol>
-        <li>item</li>
-        <li>another item</li>
+        {#each elementGroup.elements as element }
+            <li>{element.name}</li>
+        {/each}
     </ol>
 </section>
 
