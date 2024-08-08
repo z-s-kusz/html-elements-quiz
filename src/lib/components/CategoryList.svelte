@@ -5,10 +5,24 @@
     }
 
     let { elementGroup }: Props = $props();
+    let showCategoryName = $derived.by(() => {
+        let show = false;
+        elementGroup.elements.forEach((element) => {
+            if (element.revealed) show = true;
+        });
+        return show;
+    });
+    let countDisplay = $derived.by(() => {
+        const count = elementGroup.elements.reduce((acc, nextElement) => {
+            if (nextElement.revealed) acc++;
+            return acc;
+        }, 0);
+        return `${count} / ${elementGroup.elements.length}`;
+    })
 </script>
 
 <section class="category-list">
-    <h1>{elementGroup.name}</h1>
+    <h1>{showCategoryName ? elementGroup.name : '...'} {countDisplay}</h1>
     <ol>
         {#each elementGroup.elements as element }
             <li>{element.revealed ? element.name : ''}</li>
