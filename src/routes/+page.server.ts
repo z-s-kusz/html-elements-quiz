@@ -1,5 +1,6 @@
 import { google } from 'googleapis';
 import { GOOG_CREDENTIALS, SHEET_ID } from '$env/static/private'
+import type Element from '../models/Element';
 
 const serviceEndpoint = 'https://sheets.googleapis.com/v4/spreadsheets';
 const sheetId = SHEET_ID;
@@ -11,7 +12,7 @@ client.scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 const getElements = async () => {
     // A1 notation https://developers.google.com/sheets/api/guides/concepts#cell
-    const range = `${sheetName}!A2:D200`;
+    const range = `${sheetName}!A2:E200`;
     const options = {
         url: `${serviceEndpoint}/${sheetId}/values/${range}`,
     };
@@ -25,7 +26,7 @@ const getElements = async () => {
     }
 };
 
-const mapSheetData = (data: any) => {
+const mapSheetData = (data: any): Element[] => {
     return data.map((row: any) => {
         return {
             name: row[0],
@@ -33,7 +34,8 @@ const mapSheetData = (data: any) => {
             category: row[2],
             revealed: false,
             class: row[3],
-        };
+            sortPosition: row[4],
+        } as Element;
     });
 };
 

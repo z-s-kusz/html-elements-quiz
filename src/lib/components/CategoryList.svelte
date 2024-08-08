@@ -17,7 +17,7 @@
             if (nextElement.revealed) acc++;
             return acc;
         }, 0);
-        return `${count} / ${elementGroup.elements.length}`;
+        return `${count}/${elementGroup.elements.length}`;
     })
 </script>
 

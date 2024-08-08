@@ -3,4 +3,6 @@ export default interface Element {
     description: string;
     category: string;
     revealed: boolean;
+    class?: string;
+    sortPosition?: number | null;
 }
