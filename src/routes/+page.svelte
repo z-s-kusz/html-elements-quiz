@@ -5,6 +5,8 @@
 	import type ElementGroup from "../models/ElementGroup.js";
 
     let groupedElements = $state<ElementGroup[]>([]);
+    let showAllCategories = $state(false);
+    let showAllAnswers = $state(false);
     let { data } = $props();
     let totalCount = $derived.by(() => {
         let count = 0;
@@ -56,6 +58,11 @@
         });
     };
 
+    const toggleCheckbox = (name: string) => {
+        if (name === 'categories') showAllCategories = !showAllCategories;
+        if (name === 'answers') showAllAnswers = !showAllAnswers;
+    };
+
     // js below this line should run once - like angular's ngOnInit
     // not sure if there is a more clear svelte-like way to do that
     groupedElements = sortGroups(mapGroups(data.elements || []));
@@ -63,24 +70,18 @@
 
 
 <main class="grid">
-    <AnswerForm processAnswer={processAnswer}>
+    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox}>
         <!-- Doesn't make the most sense to pass this here but I got to learn about svelte 5 slots -->
         <header>
             <h1>HTML Elements Quiz: {totalCount}</h1>
         </header>
     </AnswerForm>
     {#each groupedElements as elementGroup}
-        <CategoryList elementGroup={elementGroup} />
+        <CategoryList elementGroup={elementGroup} showAllAnswers={showAllAnswers} showAllCategories={showAllCategories} />
     {/each}
 </main>
 
 <style>
-    :root {
-        font-family: "IBM Plex Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-    }
-
     .grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

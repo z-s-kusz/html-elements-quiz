@@ -1,10 +1,12 @@
 <script lang="ts">
     import type ElementGroup from "../../models/ElementGroup.js";
     interface Props {
-        elementGroup: ElementGroup
+        elementGroup: ElementGroup;
+        showAllCategories: boolean;
+        showAllAnswers: boolean;
     }
 
-    let { elementGroup }: Props = $props();
+    let { elementGroup, showAllCategories, showAllAnswers }: Props = $props();
     let showCategoryName = $derived.by(() => {
         let show = false;
         elementGroup.elements.forEach((element) => {
@@ -18,14 +20,19 @@
             return acc;
         }, 0);
         return `${count}/${elementGroup.elements.length}`;
-    })
+    });
 </script>
 
 <section class="category-list">
-    <h1>{showCategoryName ? elementGroup.name : '...'} {countDisplay}</h1>
+    <hgroup>
+        <h2>{showCategoryName || showAllCategories ? elementGroup.name : '...'}</h2>
+        <p>{countDisplay}</p>
+    </hgroup>
     <ol>
         {#each elementGroup.elements as element }
-            <li>{element.revealed ? element.name : ''}</li>
+            <li class={showAllAnswers && !element.revealed ? 'red' : ''}>
+                {element.revealed || showAllAnswers ? element.name : ''}
+            </li>
         {/each}
     </ol>
 </section>
@@ -35,5 +42,8 @@
     background-color:rgb(172, 255, 183);
     border: 12px solid black;
     padding: 20px;
+}
+.red {
+    color: rgb(187, 38, 38);
 }
 </style>
