@@ -70,7 +70,7 @@
 
 
 <main class="grid">
-    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox}>
+    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox} count={data.elements?.length || 0}>
         <!-- Doesn't make the most sense to pass this here but I got to learn about svelte 5 slots -->
         <header>
             <h1>HTML Elements Quiz: {totalCount}</h1>

@@ -21,6 +21,7 @@
         }, 0);
         return `${count}/${elementGroup.elements.length}`;
     });
+    const baseURL = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/';
 </script>
 
 <section class="category-list">
@@ -31,7 +32,9 @@
     <ol>
         {#each elementGroup.elements as element }
             <li class={showAllAnswers && !element.revealed ? 'red' : ''}>
-                {element.revealed || showAllAnswers ? element.name : ''}
+                <a href={baseURL + element.name} target="_blank">
+                    {element.revealed || showAllAnswers ? element.name : ''}
+                </a>
             </li>
         {/each}
     </ol>
@@ -47,7 +50,15 @@
     display: flex;
     justify-content: space-between;
 }
-.red {
+
+a {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    color: black;
+}
+.red a, .red a:visited {
     color: rgb(187, 38, 38);
 }
 </style>

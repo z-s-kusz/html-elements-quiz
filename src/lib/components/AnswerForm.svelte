@@ -1,12 +1,15 @@
 <script lang="ts">
+	import AboutDialog from "./AboutDialog.svelte";
+
     interface Props {
         processAnswer: Function;
         toggleCheckbox: Function;
+        count: number;
         children: any;
     }
 
     let answer = $state('');
-    let { processAnswer, children, toggleCheckbox }: Props = $props();
+    let { processAnswer, children, toggleCheckbox, count }: Props = $props();
 
     const submit = (event: SubmitEvent) => {
         event.preventDefault();
@@ -19,17 +22,23 @@
 
 <form onsubmit={submit}>
     {@render children()}
-    <!-- TODO fix type possibly null error -->
-    <label for="answer">Element</label>
-    <input name="answer" value={answer} oninput={(e) => answer = e.target.value} autocomplete="off" />
-    <br />
 
-    <label for="show-categories">Show Categories</label>
-    <input name="show-categories" type="checkbox" value="false" oninput={() => toggleCheckbox('categories')} />
-    <br />
+    <div class="flex-between">
+        <div>
+            <label for="answer">Element</label>
+            <input id="answer" value={answer} oninput={(e) => answer = e.target.value} autocomplete="off" />
+            <button type="submit">Submit</button>
+            <br />
 
-    <label for="show-answers">Show Answers</label>
-    <input name="show-answers" type="checkbox" value="false" oninput={() => toggleCheckbox('answers')} />
+            <label for="show-categories" class="hover-pointer">Show Categories</label>
+            <input id="show-categories" type="checkbox" value="false" oninput={() => toggleCheckbox('categories')} />
+            <br />
+
+            <label for="show-answers" class="hover-pointer">Show Answers</label>
+            <input id="show-answers" type="checkbox" value="false" oninput={() => toggleCheckbox('answers')} />
+        </div>
+        <AboutDialog count={count}/>
+    </div>
 </form>
 
 <style>
@@ -42,5 +51,11 @@
         position: sticky;
         top: 0;
         background-color: #a8fdfd;
+    }
+
+    .flex-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
     }
 </style>
