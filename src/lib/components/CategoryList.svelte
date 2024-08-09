@@ -24,10 +24,10 @@
 </script>
 
 <section class="category-list">
-    <hgroup>
-        <h2>{showCategoryName || showAllCategories ? elementGroup.name : '...'}</h2>
+    <div class="category-title">
+        <p>{showCategoryName || showAllCategories ? elementGroup.name : '...'}</p>
         <p>{countDisplay}</p>
-    </hgroup>
+    </div>
     <ol>
         {#each elementGroup.elements as element }
             <li class={showAllAnswers && !element.revealed ? 'red' : ''}>
@@ -39,9 +39,13 @@
 
 <style>
 .category-list {
-    background-color:rgb(172, 255, 183);
-    border: 12px solid black;
-    padding: 20px;
+    background-color:rgb(195 247 203);
+    padding: 0.75rem;
+    margin: 0.25rem;
+}
+.category-title {
+    display: flex;
+    justify-content: space-between;
 }
 .red {
     color: rgb(187, 38, 38);

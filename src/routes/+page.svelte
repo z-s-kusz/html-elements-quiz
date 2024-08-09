@@ -86,5 +86,9 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: auto;
+        background-color: #444;
+    }
+    h1 {
+        margin: 1rem 0;
     }
 </style>

@@ -37,9 +37,10 @@
         grid-column-start: 2;
         grid-row-start: 2;
         grid-column-end: 4;
-        padding: 2rem;
+        padding: 1.25rem;
+        margin: 0.25rem;
         position: sticky;
         top: 0;
-        background-color: #fdfdfd;
+        background-color: #a8fdfd;
     }
 </style>
