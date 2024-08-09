@@ -50,7 +50,16 @@
         margin: 0.25rem;
         position: sticky;
         top: 0;
-        background-color: #a8fdfd;
+        background: rgb(139,235,234);
+        background: linear-gradient(139deg, rgba(139,235,234,1) 0%, rgba(168,253,253,1) 50%);
+    }
+
+    @media (max-width: 750px) {
+        form {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            grid-column-end: 2;
+        }
     }
 
     .flex-between {

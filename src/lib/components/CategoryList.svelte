@@ -26,7 +26,7 @@
 
 <section class="category-list">
     <div class="category-title">
-        <p>{showCategoryName || showAllCategories ? elementGroup.name : '...'}</p>
+        <p class="caps">{showCategoryName || showAllCategories ? elementGroup.name : '...'}</p>
         <p>{countDisplay}</p>
     </div>
     <ol>
@@ -42,7 +42,8 @@
 
 <style>
 .category-list {
-    background-color:rgb(195 247 203);
+    background: rgb(142,233,187);
+    background: linear-gradient(139deg, rgba(142,233,187,1) 0%, rgba(145,247,203,1) 66%);
     padding: 0.75rem;
     margin: 0.25rem;
 }
@@ -51,6 +52,9 @@
     justify-content: space-between;
 }
 
+.caps {
+    text-transform: capitalize;
+}
 a {
     text-decoration: none;
     color: black;

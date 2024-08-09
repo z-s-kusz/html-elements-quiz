@@ -85,8 +85,16 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: auto;
-        background-color: #444;
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(64,64,64,1) 80%);
     }
+
+    @media (max-width: 750px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
     h1 {
         margin: 1rem 0;
     }

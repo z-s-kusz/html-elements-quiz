@@ -21,7 +21,8 @@
 
 <style>
     dialog {
-        background-color: rgb(253, 204, 111);
+        background: rgb(232,161,75);
+        background: linear-gradient(0deg, rgba(232,161,75,1) 0%, rgba(253,204,111,1) 100%);
     }
     .controls {
         display: flex;
