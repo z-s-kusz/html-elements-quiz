@@ -65,12 +65,11 @@
 
     // js below this line should run once - like angular's ngOnInit
     // not sure if there is a more clear svelte-like way to do that
-    groupedElements = sortGroups(mapGroups(data.elements || []));
+    groupedElements = sortGroups(mapGroups(data.elements));
 </script>
 
-
 <main class="grid">
-    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox} count={data.elements?.length || 0}>
+    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox} count={data.elements.length}>
         <!-- Doesn't make the most sense to pass this here but I got to learn about svelte 5 slots -->
         <header>
             <h1>HTML Elements Quiz: {totalCount}</h1>

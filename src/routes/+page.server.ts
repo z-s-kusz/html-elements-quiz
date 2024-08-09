@@ -12,7 +12,7 @@ client.scopes = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 const getElements = async () => {
     // A1 notation https://developers.google.com/sheets/api/guides/concepts#cell
-    const range = `${sheetName}!A2:E200`;
+    const range = `${sheetName}!A2:F200`;
     const options = {
         url: `${serviceEndpoint}/${sheetId}/values/${range}`,
     };
@@ -23,6 +23,7 @@ const getElements = async () => {
         return elements;
     } catch (err) {
         console.error('error getting spreadsheet data', err);
+        return [];
     }
 };
 
@@ -35,6 +36,7 @@ const mapSheetData = (data: any): Element[] => {
             revealed: false,
             class: row[3],
             sortPosition: row[4],
+            urlOverride: row[5],
         } as Element;
     });
 };

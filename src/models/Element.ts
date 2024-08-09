@@ -4,5 +4,6 @@ export default interface Element {
     category: string;
     revealed: boolean;
     class?: string;
-    sortPosition?: number | null;
+    sortPosition?: number;
+    urlOverride?: string
 }

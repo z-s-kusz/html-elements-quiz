@@ -21,7 +21,7 @@
         }, 0);
         return `${count}/${elementGroup.elements.length}`;
     });
-    const baseURL = 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/';
+    const baseURL = 'https://developer.mozilla.org/docs/Web/HTML/Element/';
 </script>
 
 <section class="category-list">
@@ -32,7 +32,7 @@
     <ol>
         {#each elementGroup.elements as element }
             <li class={showAllAnswers && !element.revealed ? 'red' : ''}>
-                <a href={baseURL + element.name} target="_blank">
+                <a href={element.urlOverride || baseURL + element.name} target="_blank">
                     {element.revealed || showAllAnswers ? element.name : ''}
                 </a>
             </li>
