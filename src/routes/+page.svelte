@@ -1,5 +1,6 @@
 <script lang="ts">
-	import AnswerForm from "$lib/components/AnswerForm.svelte";
+	import AboutDialog from "$lib/components/AboutDialog.svelte";
+    import AnswerForm from "$lib/components/AnswerForm.svelte";
 	import CategoryList from "$lib/components/CategoryList.svelte";
 	import type Element from "../models/Element.js";
 	import type ElementGroup from "../models/ElementGroup.js";
@@ -69,10 +70,11 @@
 </script>
 
 <main class="grid">
-    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox} count={data.elements.length}>
+    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox}>
         <!-- Doesn't make the most sense to pass this here but I got to learn about svelte 5 slots -->
         <header>
-            <h1>HTML Elements Quiz: {totalCount}</h1>
+            <h1><u>HTML Elements Quiz</u> {totalCount}</h1>
+            <AboutDialog count={data.elements.length} />
         </header>
     </AnswerForm>
     {#each groupedElements as elementGroup}
@@ -81,6 +83,11 @@
 </main>
 
 <style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     .grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);

@@ -1,15 +1,12 @@
 <script lang="ts">
-	import AboutDialog from "./AboutDialog.svelte";
-
     interface Props {
         processAnswer: Function;
         toggleCheckbox: Function;
-        count: number;
         children: any;
     }
 
     let answer = $state('');
-    let { processAnswer, children, toggleCheckbox, count }: Props = $props();
+    let { processAnswer, children, toggleCheckbox }: Props = $props();
 
     const submit = (event: SubmitEvent) => {
         event.preventDefault();
@@ -37,7 +34,6 @@
             <label for="show-answers" class="hover-pointer">Show Answers</label>
             <input id="show-answers" type="checkbox" value="false" oninput={() => toggleCheckbox('answers')} />
         </div>
-        <AboutDialog count={count}/>
     </div>
 </form>
 

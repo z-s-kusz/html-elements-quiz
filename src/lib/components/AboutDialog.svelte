@@ -23,6 +23,8 @@
     dialog {
         background: rgb(232,161,75);
         background: linear-gradient(0deg, rgba(232,161,75,1) 0%, rgba(253,204,111,1) 100%);
+        padding: 1.25rem;
+        border: 0.5rem solid black;
     }
     .controls {
         display: flex;

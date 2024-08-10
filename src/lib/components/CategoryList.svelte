@@ -65,4 +65,10 @@ a:visited {
 .red a, .red a:visited {
     color: rgb(187, 38, 38);
 }
+
+    @media (max-width: 750px) {
+        ol {
+            margin: 0;
+        }
+    }
 </style>
