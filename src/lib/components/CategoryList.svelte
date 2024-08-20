@@ -26,7 +26,7 @@
 
 <section class="category-list">
     <div class="category-title">
-        <p class="caps">{showCategoryName || showAllCategories ? elementGroup.name : '...'}</p>
+        <p>{showCategoryName || showAllCategories ? elementGroup.name : '...'}</p>
         <p>{countDisplay}</p>
     </div>
     <ol>
@@ -52,9 +52,6 @@
     justify-content: space-between;
 }
 
-.caps {
-    text-transform: capitalize;
-}
 a {
     text-decoration: none;
     color: black;

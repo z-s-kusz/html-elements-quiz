@@ -31,12 +31,10 @@ const mapSheetData = (data: any): Element[] => {
     return data.map((row: any) => {
         return {
             name: row[0],
-            description: row[1],
-            category: row[2],
+            category: row[1],
             revealed: false,
-            class: row[3],
-            sortPosition: row[4],
-            urlOverride: row[5],
+            sortPosition: row[2],
+            urlOverride: row[3],
         } as Element;
     });
 };
