@@ -94,6 +94,7 @@
         grid-auto-rows: auto;
         background: rgb(0,0,0);
         background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(64,64,64,1) 80%);
+        padding: 0.25rem;
     }
 
     @media (max-width: 750px) {
