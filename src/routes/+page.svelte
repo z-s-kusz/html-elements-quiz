@@ -61,16 +61,17 @@
 
     const toggleCheckbox = (name: string) => {
         if (name === 'categories') showAllCategories = !showAllCategories;
-        if (name === 'answers') showAllAnswers = !showAllAnswers;
+        else if (name === 'answers') showAllAnswers = !showAllAnswers;
+        else console.error('no name provided to toggleCheckbox');
     };
 
-    // js below this line should run once - like angular's ngOnInit
-    // not sure if there is a more clear svelte-like way to do that
-    groupedElements = sortGroups(mapGroups(data.elements));
+    $effect(() => {
+        groupedElements = sortGroups(mapGroups(data.elements));
+    });
 </script>
 
 <main class="grid">
-    <AnswerForm processAnswer={processAnswer} toggleCheckbox={toggleCheckbox}>
+    <AnswerForm {processAnswer} {toggleCheckbox}>
         <!-- Doesn't make the most sense to pass this here but I got to learn about svelte 5 slots -->
         <header>
             <h1><u>HTML Elements Quiz</u> {totalCount}</h1>
@@ -78,7 +79,7 @@
         </header>
     </AnswerForm>
     {#each groupedElements as elementGroup}
-        <CategoryList elementGroup={elementGroup} showAllAnswers={showAllAnswers} showAllCategories={showAllCategories} />
+        <CategoryList {elementGroup} {showAllAnswers} {showAllCategories} />
     {/each}
 </main>
 

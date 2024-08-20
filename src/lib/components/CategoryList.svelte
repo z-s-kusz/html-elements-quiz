@@ -41,27 +41,27 @@
 </section>
 
 <style>
-.category-list {
-    background: rgb(142,233,187);
-    background: linear-gradient(139deg, rgba(142,233,187,1) 0%, rgba(145,247,203,1) 66%);
-    padding: 0.75rem;
-    margin: 0.25rem;
-}
-.category-title {
-    display: flex;
-    justify-content: space-between;
-}
+    .category-list {
+        background: rgb(142,233,187);
+        background: linear-gradient(139deg, rgba(142,233,187,1) 0%, rgba(145,247,203,1) 66%);
+        padding: 0.75rem;
+        margin: 0.25rem;
+    }
+    .category-title {
+        display: flex;
+        justify-content: space-between;
+    }
 
-a {
-    text-decoration: none;
-    color: black;
-}
-a:visited {
-    color: black;
-}
-.red a, .red a:visited {
-    color: rgb(187, 38, 38);
-}
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    a:visited {
+        color: black;
+    }
+    .red a, .red a:visited {
+        color: rgb(187, 38, 38);
+    }
 
     @media (max-width: 750px) {
         ol {

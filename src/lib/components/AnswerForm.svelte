@@ -5,8 +5,13 @@
         children: any;
     }
 
-    let answer = $state('');
     let { processAnswer, children, toggleCheckbox }: Props = $props();
+    let answer = $state('');
+
+    // TODO find an easier better way to handle types here
+    const onElementInput = (event: any) => {
+        answer = (event.currentTarget as HTMLInputElement).value;
+    };
 
     const submit = (event: SubmitEvent) => {
         event.preventDefault();
@@ -23,7 +28,7 @@
     <div class="flex-between">
         <div>
             <label for="answer">Element</label>
-            <input id="answer" value={answer} oninput={(e) => answer = e.target.value} autocomplete="off" />
+            <input id="answer" value={answer} oninput={onElementInput} autocomplete="off" />
             <button type="submit">Submit</button>
             <br />
 
