@@ -21,12 +21,12 @@
     <hr />
 
     <p>
-        <!-- hardcoding + 1 since this is hopefully not a common issue with mozillas docs -->
-        <sup>*</sup>: Mozilla actually lists <i>{count + 1}</i> on their
+        <!-- hardcoding + 2 since this is hopefully not a common issue with mozillas docs :) -->
+        <sup>*</sup>: Mozilla actually lists <i>{count + 2}</i> on their
         <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">
             reference page
         </a>
-        as of Sept. 2024 but one isn't available by default in any browser so I removed it from this list.
+        as of Sept. 2024 but two aren't available by default in any browser so I removed them.
     </p>
     <p>
         <sup>**</sup>: There's nothing 'official' about the categories,
